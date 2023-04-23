@@ -6,18 +6,14 @@ function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
+      <h1>Shiwei's tutoring portal</h1>
+      <p>Currently under construction! Come back later! {`<3`}</p>
       <div className="card">
+        <p>Click below!</p>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
