@@ -1,17 +1,33 @@
-import './App.css'
+import Repl from './components/Repl'
+import ResponsiveAppBar from './components/Appbar'
+import { Button, Typography } from '@mui/material'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function App() {
   return (
     <>
-      <h1>Shiwei's tutoring portal</h1>
-      <p>Currently under construction! Come back later! {`<3`}</p>
-      <div className="card">
-        <button>
-          <a href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank">Pay Tuition</a>
-        </button>
-      </div>
+      <ResponsiveAppBar/>
 
-      <iframe width="1200vw" height="800vh" src="https://replit.com/@schen-academy/VainDazzlingField"></iframe>
+      <Typography variant="h4">
+        Welcome Back!
+      </Typography>
+
+      <Typography variant="h6">
+        Test Font
+      </Typography>
+
+      <br></br>
+      <Button
+      variant="outlined"
+      href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo"
+      target="_blank">
+        Pay Tuition
+      </Button>
+
+       <Repl/>
 
     </>
   )
