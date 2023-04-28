@@ -37,7 +37,7 @@ export default function ResponsiveAppBar() {
 
   return (
     <AppBar position="static">
-      <Container>
+      <Container maxWidth={false}>
         <Toolbar disableGutters>
           <CodeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
@@ -69,6 +69,7 @@ export default function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -94,6 +95,7 @@ export default function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
+
           <CodeIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
