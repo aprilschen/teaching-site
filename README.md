@@ -1,5 +1,5 @@
 # teaching-site
-This site is still in it's beginning stages of development, and is NOT usable in it's current state.
+This site is still in its beginning stages of development, and is NOT usable in its current state.
 
 You can find the version I'm currently pushing to at https://www.schen.academy. 
 
@@ -22,6 +22,6 @@ All the best! <br>
  - RDS PostgreSQL
 
 #### Integrations
- - Stripe Payment processing
- - OAuth2 (Google Sign-in)
- - Replit Embeds
+ - Stripe payment processing
+ - OAuth2 (Google sign-in)
+ - Replit embeds
