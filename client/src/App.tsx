@@ -20,14 +20,6 @@ function App() {
         Test Font
       </Typography>
 
-      <br></br>
-      <Button
-      variant="outlined"
-      href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo"
-      target="_blank">
-        Pay Tuition
-      </Button>
-
        <Repl/>
 
         <Oauth/>

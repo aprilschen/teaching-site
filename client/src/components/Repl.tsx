@@ -8,7 +8,7 @@ export default function Repl() {
             <Button
             variant="outlined"
             onClick={() => setOpen(!open)}>
-                {open == true ? 'Close Repl' : "Open Repl"}
+                {open == true ? 'Close Repl Embed' : "Open Repl Embed"}
             </Button>
 
             <section>

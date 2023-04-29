@@ -13,7 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import CodeIcon from '@mui/icons-material/Code';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+import { user }  from '../data/mock-data';
+import { Link } from '@mui/material';
+
+const pages = ['Home', 'Pay Tuition', 'Open Repl'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function ResponsiveAppBar() {
@@ -48,7 +51,6 @@ export default function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -87,12 +89,28 @@ export default function ResponsiveAppBar() {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              >
+              <Button
+              key={"Pay Tuition"}
+              onClick={handleCloseNavMenu}>
+                <Link href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank">
+                  <Typography textAlign={"center"}>
+                    Pay Tuition
+                  </Typography>
+                </Link>
+              </Button>
+
+              <br></br>
+
+              <Button
+              key={"Open Repl"}
+              onClick={handleCloseNavMenu}>
+                <Link href={user.repl} target="_blank">
+                  <Typography textAlign={"center"}>
+                    Open Repl
+                  </Typography>
+                </Link>
+              </Button>
             </Menu>
           </Box>
 
@@ -106,7 +124,6 @@ export default function ResponsiveAppBar() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -116,15 +133,22 @@ export default function ResponsiveAppBar() {
             Class Portal
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+
+            <Button
+            key={"Pay Tuition"}
+            onClick={handleCloseNavMenu}
+            variant="outlined"
+            sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank" color="inherit">Pay Tuition</Link>
+            </Button>
+
+            <Button
+              key={"Open Repl"}
+              onClick={handleCloseNavMenu}
+              variant="outlined"
+              sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link href={user.repl} target="_blank" color="inherit">Open Repl</Link>
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
