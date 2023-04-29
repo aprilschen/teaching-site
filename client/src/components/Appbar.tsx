@@ -13,13 +13,20 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import CodeIcon from '@mui/icons-material/Code';
 
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
 import { user }  from '../data/mock-data';
 import { Link } from '@mui/material';
 
-const pages = ['Home', 'Pay Tuition', 'Open Repl'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Account', 'Logout'];
 
-export default function ResponsiveAppBar() {
+
+
+export default function ResponsiveAppBar(props: any) {
+  const theme = props.theme;
+  const colorMode = props.colorMode;
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -39,8 +46,9 @@ export default function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth={false}>
+    <>
+      <AppBar position="static" sx={{mb:3}}>
+      <Container maxWidth={false} sx={{mx:1}}>
         <Toolbar disableGutters>
           <CodeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
@@ -87,7 +95,7 @@ export default function ResponsiveAppBar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none'},
               }}
               >
               <Button
@@ -111,10 +119,21 @@ export default function ResponsiveAppBar() {
                   </Typography>
                 </Link>
               </Button>
+              
+              <br></br>
+              <Button
+              key={"Ask for help"}
+              onClick={handleCloseNavMenu}>
+                <Link href="https://vcard.link/card/DhbO" target="_blank">
+                  <Typography textAlign={"center"}>
+                  Ask for help
+                  </Typography>
+                </Link>
+              </Button>
             </Menu>
           </Box>
 
-          <CodeIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <CodeIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, ml:9}} />
           <Typography
             variant="h5"
             noWrap
@@ -137,7 +156,6 @@ export default function ResponsiveAppBar() {
             <Button
             key={"Pay Tuition"}
             onClick={handleCloseNavMenu}
-            variant="outlined"
             sx={{ my: 2, color: 'white', display: 'block' }}>
               <Link href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank" color="inherit">Pay Tuition</Link>
             </Button>
@@ -145,10 +163,23 @@ export default function ResponsiveAppBar() {
             <Button
               key={"Open Repl"}
               onClick={handleCloseNavMenu}
-              variant="outlined"
               sx={{ my: 2, color: 'white', display: 'block' }}>
               <Link href={user.repl} target="_blank" color="inherit">Open Repl</Link>
             </Button>
+
+            <Button
+              key={"Ask for help"}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link href="https://vcard.link/card/DhbO" target="_blank" color="inherit">Ask for help</Link>
+            </Button>
+          </Box>
+
+          <Box sx={{mr: 1}}>
+            <Typography display={'inline'}>{theme.palette.mode} mode</Typography>
+            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -183,5 +214,7 @@ export default function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+    </>
+
   );
 }
