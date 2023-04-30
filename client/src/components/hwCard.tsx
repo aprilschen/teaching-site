@@ -36,13 +36,12 @@ export default function HomeworkCard(props: any) {
             </CardActions>
             {confetti == true ? (
             <Confetti
-            numberOfPieces={80}
+            numberOfPieces={300}
             recycle={false}
             onConfettiComplete={() => {setConfetti(!confetti)}}
             />) : (
                 <></>
             )}
-
         </Paper>
     );
 }
