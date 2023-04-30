@@ -8,10 +8,10 @@ export const user = {
      repl: "https://replit.com/@schen-academy/VainDazzlingField"
 }
 
-export const homework = [{
+export const homeworks = [{
     homeworkID: 1,
     studentID: 1,
-    dateAssigned:(new Date()).toString(),
+    dateAssigned:"Sun Apr 30 2023 09:58:17 GMT-0700 (Pacific Daylight Time)",
     dateDue:(new Date()).toString(),
     name: 'Finish X Homework',
     description: 'Finish X Homework, subquestions 1, 2, and 3',
@@ -21,7 +21,7 @@ export const homework = [{
 {
     homeworkID: 2,
     studentID: 1,
-    dateAssigned:(new Date()).toString(),
+    dateAssigned:"Sun Apr 30 2023 09:58:17 GMT-0700 (Pacific Daylight Time)",
     dateDue:(new Date()).toString(),
     name: 'Finish Y Homework',
     description: 'Finish Y Homework, subquestions 1, 2, and 3',

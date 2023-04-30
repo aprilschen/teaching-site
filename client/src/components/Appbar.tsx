@@ -176,7 +176,6 @@ export default function ResponsiveAppBar(props: any) {
           </Box>
 
           <Box sx={{mr: 1}}>
-            <Typography display={'inline'}>{theme.palette.mode} mode</Typography>
             <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
                 {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
