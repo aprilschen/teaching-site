@@ -17,7 +17,7 @@ export default function App(props: any) {
         <ResponsiveAppBar theme={props.theme} colorMode={props.colorMode}/>
 
         <Box sx={{mx: 4}}>
-          <Typography variant="h4">
+          <Typography variant="h4" sx={{mb:1}}>
             Welcome Back, {`${user.firstName}!`}
           </Typography>
 

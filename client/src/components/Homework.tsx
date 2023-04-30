@@ -7,7 +7,7 @@ import HomeworkCard from "./hwCard";
 export default function Homework() {
     return (
         <>
-            <Typography variant="h6">
+            <Typography variant="h5" sx={{my:2}}>
                 Upcoming Homework
             </Typography>
 
@@ -20,6 +20,7 @@ export default function Homework() {
                         name={homework.name}
                         description={homework.description}
                         link={homework.link}
+                        isComplete={homework.isComplete}
                         />
                     </Grid>
 

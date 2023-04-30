@@ -1,8 +1,21 @@
-import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
+import { Button, Paper, CardActions, CardContent, Typography } from "@mui/material";
+import { useState } from "react";
+import Confetti from 'react-confetti'
+
 
 export default function HomeworkCard(props: any) {
+    const [isComplete, setIsComplete] = useState(props.isComplete);
+    const [confetti, setConfetti] = useState(false);
+
+    function handleChange() {
+        setIsComplete(!isComplete);
+        if(isComplete == true) {
+            setConfetti(true)
+        }
+    }
+
     return (
-        <Card sx={{mb:4}}>
+        <Paper elevation={2} sx={{mb:4}}>
             <CardContent>
                 <Typography>{props.dateAssigned}</Typography>
                 <Typography>{props.dateDue}</Typography>
@@ -11,8 +24,25 @@ export default function HomeworkCard(props: any) {
                 <Typography>{props.link}</Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Mark Complete</Button>
+                {isComplete ? (
+                    <Button variant={"contained"}color={"warning"} onClick={handleChange}>
+                        Incomplete
+                    </Button>) : (
+                    <Button variant={"contained"}color={"success"} onClick={handleChange}>
+                        Complete
+                    </Button>
+                    )
+                }
             </CardActions>
-        </Card>
+            {confetti == true ? (
+            <Confetti
+            numberOfPieces={80}
+            recycle={false}
+            onConfettiComplete={() => {setConfetti(!confetti)}}
+            />) : (
+                <></>
+            )}
+
+        </Paper>
     );
 }

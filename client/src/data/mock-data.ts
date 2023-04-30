@@ -15,7 +15,8 @@ export const homeworks = [{
     dateDue:(new Date()).toString(),
     name: 'Finish X Homework',
     description: 'Finish X Homework, subquestions 1, 2, and 3',
-    link: "https://www.schen.academy"
+    link: "https://www.schen.academy",
+    isComplete: true
 },
 
 {
@@ -25,7 +26,19 @@ export const homeworks = [{
     dateDue:(new Date()).toString(),
     name: 'Finish Y Homework',
     description: 'Finish Y Homework, subquestions 1, 2, and 3',
-    link: "https://www.schen.site"
+    link: "https://www.schen.site",
+    isComplete: false
+},
+
+{
+    homeworkID: 3,
+    studentID: 1,
+    dateAssigned:"Sun Apr 30 2023 09:58:17 GMT-0700 (Pacific Daylight Time)",
+    dateDue:(new Date()).toString(),
+    name: 'Finish Z Homework',
+    description: 'Finish Z Homework, subquestions 1, 2, and 3',
+    link: "https://www.schen.me",
+    isComplete: true
 }]
 
 export const tuition = [{
