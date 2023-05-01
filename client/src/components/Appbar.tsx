@@ -21,8 +21,6 @@ import { Link } from '@mui/material';
 
 const settings = ['Account', 'Logout'];
 
-
-
 export default function ResponsiveAppBar(props: any) {
   const theme = props.theme;
   const colorMode = props.colorMode;
@@ -99,10 +97,22 @@ export default function ResponsiveAppBar(props: any) {
               }}
               >
               <Button
+              key={"Class Link"}
+              onClick={handleCloseNavMenu}>
+                <Link sx={{textDecoration: 'none'}} href="https://meet.google.com/jjt-utzf-grg" target="_blank">
+                  <Typography>
+                    Class Link
+                  </Typography>
+                </Link>
+              </Button>
+
+              <br></br>
+
+              <Button
               key={"Pay Tuition"}
               onClick={handleCloseNavMenu}>
-                <Link href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank">
-                  <Typography textAlign={"center"}>
+                <Link sx={{textDecoration: 'none'}} href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank">
+                  <Typography>
                     Pay Tuition
                   </Typography>
                 </Link>
@@ -113,20 +123,33 @@ export default function ResponsiveAppBar(props: any) {
               <Button
               key={"Open Repl"}
               onClick={handleCloseNavMenu}>
-                <Link href={user.repl} target="_blank">
-                  <Typography textAlign={"center"}>
+                <Link sx={{textDecoration: 'none'}} href={user.repl} target="_blank">
+                  <Typography>
                     Open Repl
                   </Typography>
                 </Link>
               </Button>
               
               <br></br>
+
               <Button
-              key={"Ask for help"}
+              key={"Message me"}
               onClick={handleCloseNavMenu}>
-                <Link href="https://vcard.link/card/DhbO" target="_blank">
-                  <Typography textAlign={"center"}>
-                  Ask for help
+                <Link sx={{textDecoration: 'none'}} href="https://vcard.link/card/DhbO" target="_blank">
+                  <Typography>
+                  Message me
+                  </Typography>
+                </Link>
+              </Button>
+
+              <br></br>
+
+              <Button
+              key={"Absence Form"}
+              onClick={handleCloseNavMenu}>
+                <Link sx={{textDecoration: 'none'}} href="https://vcard.link/card/DhbO" target="_blank">
+                  <Typography>
+                    Absence Form
                   </Typography>
                 </Link>
               </Button>
@@ -151,27 +174,40 @@ export default function ResponsiveAppBar(props: any) {
           >
             Class Portal
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
+            <Button
+              key={"Class Link"}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block'}}>
+              <Link sx={{textDecoration: 'none'}}href="https://meet.google.com/jjt-utzf-grg" target="_blank" color="inherit">Class Link</Link>
+            </Button>
 
             <Button
             key={"Pay Tuition"}
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: 'white', display: 'block' }}>
-              <Link href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank" color="inherit">Pay Tuition</Link>
+              <Link sx={{textDecoration: 'none'}} href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank" color="inherit">Pay Tuition</Link>
             </Button>
 
             <Button
               key={"Open Repl"}
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}>
-              <Link href={user.repl} target="_blank" color="inherit">Open Repl</Link>
+              <Link sx={{textDecoration: 'none'}} href={user.repl} target="_blank" color="inherit">Open Repl</Link>
             </Button>
 
             <Button
-              key={"Ask for help"}
+              key={"Message me"}
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}>
-              <Link href="https://vcard.link/card/DhbO" target="_blank" color="inherit">Ask for help</Link>
+              <Link sx={{textDecoration: 'none'}} href="https://vcard.link/card/DhbO" target="_blank" color="inherit">Message me</Link>
+            </Button>
+
+            <Button
+              key={"Absence Form"}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link sx={{textDecoration: 'none'}} href="https://vcard.link/card/DhbO" target="_blank" color="inherit">Absence Form</Link>
             </Button>
           </Box>
 

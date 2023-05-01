@@ -11,7 +11,7 @@ export const user = {
 export const homeworks = [{
     homeworkID: 1,
     studentID: 1,
-    dateAssigned:"Sun Apr 30 2023 09:58:17 GMT-0700 (Pacific Daylight Time)",
+    dateAssigned:"Sun Apr 30 2023",
     dateDue:(new Date()).toString(),
     name: 'Finish X Homework',
     description: 'Finish X Homework, subquestions 1, 2, and 3',
@@ -22,7 +22,7 @@ export const homeworks = [{
 {
     homeworkID: 2,
     studentID: 1,
-    dateAssigned:"Sun Apr 30 2023 09:58:17 GMT-0700 (Pacific Daylight Time)",
+    dateAssigned:"Sun Apr 30 2023",
     dateDue:(new Date()).toString(),
     name: 'Finish Y Homework',
     description: 'Finish Y Homework, subquestions 1, 2, and 3',
@@ -33,7 +33,7 @@ export const homeworks = [{
 {
     homeworkID: 3,
     studentID: 1,
-    dateAssigned:"Sun Apr 30 2023 09:58:17 GMT-0700 (Pacific Daylight Time)",
+    dateAssigned:"Sun Apr 30 2023",
     dateDue:(new Date()).toString(),
     name: 'Finish Z Homework',
     description: 'Finish Z Homework, subquestions 1, 2, and 3',

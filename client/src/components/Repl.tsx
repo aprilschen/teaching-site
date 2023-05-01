@@ -6,6 +6,7 @@ export default function Repl() {
     return (
         <>
             <Button
+            sx={{my:4}}
             variant="outlined"
             onClick={() => setOpen(!open)}>
                 {open == true ? 'Close Repl Embed' : "Open Repl Embed"}

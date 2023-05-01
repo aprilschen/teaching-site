@@ -25,13 +25,15 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
   }));
 
-export default function Homework() {
+export default function Homework(props: any) {
     const [expanded, setExpanded] = useState(false);
     const handleExpandClick = () => {setExpanded(!expanded)};
 
     return (
         <>
-            <Typography variant="h5" sx={{my:2}}>
+            <Typography variant="h5" 
+            sx={(props.theme.palette.mode == 'dark' ?
+            {color: '#FFFFFF', my:2}:{my:2})}>
                 Upcoming Homework
                 <ExpandMore
                 expand={expanded}
