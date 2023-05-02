@@ -57,7 +57,7 @@ export const tuition = [{
 export const links = [{
     linkID: 1,
     studentID: 1,
-    link: "https://www.schen.kk",
+    link: "https://ap.collegeboard.org/",
     name: "AP Website",
     type: 'resource'
 },
@@ -65,7 +65,7 @@ export const links = [{
 {
     linkID: 2,
     studentID: 1,
-    link: "https://www.schen.bruh",
+    link: "https://apstudents.collegeboard.org/ap/pdf/ap-computer-science-a-java-quick-reference_0.pdf",
     name: "Java Quick Reference",
     type: 'resource'
 }]

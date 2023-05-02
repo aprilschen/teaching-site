@@ -147,7 +147,7 @@ export default function ResponsiveAppBar(props: any) {
               <Button
               key={"Absence Form"}
               onClick={handleCloseNavMenu}>
-                <Link sx={{textDecoration: 'none'}} href="https://vcard.link/card/DhbO" target="_blank">
+                <Link sx={{textDecoration: 'none'}} href="https://forms.gle/5h1nL47DXepW2k8YA" target="_blank">
                   <Typography>
                     Absence Form
                   </Typography>
@@ -207,7 +207,7 @@ export default function ResponsiveAppBar(props: any) {
               key={"Absence Form"}
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}>
-              <Link sx={{textDecoration: 'none'}} href="https://vcard.link/card/DhbO" target="_blank" color="inherit">Absence Form</Link>
+              <Link sx={{textDecoration: 'none'}} href="https://forms.gle/5h1nL47DXepW2k8YA" target="_blank" color="inherit">Absence Form</Link>
             </Button>
           </Box>
 
