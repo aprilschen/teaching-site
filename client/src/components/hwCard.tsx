@@ -15,7 +15,7 @@ export default function HomeworkCard(props: any) {
     }
 
     return (
-        <Paper elevation={2} sx={{mb:4}}>
+        <Paper elevation={2} sx={{mb:4}} key={props.homeworkID}>
             <CardContent>
                 <Typography>{props.dateAssigned}</Typography>
                 <Typography>{props.dateDue}</Typography>

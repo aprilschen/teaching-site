@@ -3,6 +3,7 @@ import { Typography, Box, Divider } from '@mui/material';
 import Repl from './components/Repl'
 import Oauth from './components/Oauth';
 import Homework from './components/Homework';
+import Resources from './components/Resources';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -21,7 +22,7 @@ export default function App(props: any) {
         <ResponsiveAppBar theme={props.theme} colorMode={props.colorMode}/>
         <Oauth/>
         <Box sx={{mx: 4}}>
-          <Typography variant="h4" 
+          <Typography variant="h4"
           sx={(props.theme.palette.mode == 'dark' ?
           {color: '#FFFFFF', mb:1}:{mb:1})}>
             Welcome Back, {`${user.firstName}!`}
@@ -37,6 +38,10 @@ export default function App(props: any) {
 
           <Repl/>
 
+          <Divider sx={(props.theme.palette.mode == 'dark' ?
+          {backgroundColor: '#FFFFFF'}:{})}/>
+
+          <Resources theme={props.theme}/>
         </Box>
       </div>
     );

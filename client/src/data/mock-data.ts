@@ -58,8 +58,8 @@ export const links = [{
     linkID: 1,
     studentID: 1,
     link: "https://www.schen.kk",
-    name: "Class Google Meet",
-    type: 'custom'
+    name: "AP Website",
+    type: 'resource'
 },
 
 {

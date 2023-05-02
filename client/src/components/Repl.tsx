@@ -14,7 +14,7 @@ export default function Repl() {
 
             <section>
                 { open == true ?
-                <iframe width="1200vw" height="800vh" src="https://replit.com/@schen-academy/VainDazzlingField"></iframe>
+                <iframe width={'100%'} height={'800px'} src="https://replit.com/@schen-academy/VainDazzlingField"></iframe>
                 : <></> }
             </section>
         </>
