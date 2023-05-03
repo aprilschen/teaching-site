@@ -19,7 +19,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { user }  from '../data/mock-data';
 import { Link } from '@mui/material';
 
-const settings = ['Account', 'Logout'];
+const settings = ['Settings', 'Logout'];
 
 export default function ResponsiveAppBar(props: any) {
   const theme = props.theme;
@@ -99,7 +99,7 @@ export default function ResponsiveAppBar(props: any) {
               <Button
               key={"Class Link"}
               onClick={handleCloseNavMenu}>
-                <Link sx={{textDecoration: 'none'}} href="https://meet.google.com/jjt-utzf-grg" target="_blank">
+                <Link sx={{textDecoration: 'none'}} href={user.meets} target="_blank">
                   <Typography>
                     Class Link
                   </Typography>
@@ -179,7 +179,7 @@ export default function ResponsiveAppBar(props: any) {
               key={"Class Link"}
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block'}}>
-              <Link sx={{textDecoration: 'none'}}href="https://meet.google.com/jjt-utzf-grg" target="_blank" color="inherit">Class Link</Link>
+              <Link sx={{textDecoration: 'none'}} href={user.meets} target="_blank" color="inherit">Class Link</Link>
             </Button>
 
             <Button

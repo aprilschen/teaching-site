@@ -1,6 +1,6 @@
 import { Grid, Typography, IconButtonProps, IconButton } from "@mui/material";
 
-import { homeworks }  from '../data/mock-data';
+import { pastHomeworks }  from '../data/mock-data';
 
 import HomeworkCard from "./hwCard";
 
@@ -25,8 +25,8 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
   }));
 
-export default function Homework(props: any) {
-    const [expanded, setExpanded] = useState(false);
+export default function PastHomework(props: any) {
+    const [expanded, setExpanded] = useState(true);
     const handleExpandClick = () => {setExpanded(!expanded)};
 
     return (
@@ -34,7 +34,7 @@ export default function Homework(props: any) {
             <Typography variant="h5" 
             sx={(props.theme.palette.mode == 'dark' ?
             {color: '#FFFFFF', my:2}:{my:2})}>
-                Upcoming Assignments
+                Past Assignments
                 <ExpandMore
                 expand={expanded}
                 onClick={handleExpandClick}
@@ -48,7 +48,7 @@ export default function Homework(props: any) {
 
 
             {expanded == true ? (<></>): (<Grid container spacing={2}>
-                {homeworks.map((homework) => (
+                {pastHomeworks.map((homework) => (
                     <Grid item xs={4}>
                         <HomeworkCard key={homework.homeworkID}
                         dateAssigned={homework.dateAssigned}
@@ -62,9 +62,6 @@ export default function Homework(props: any) {
 
                 ))}
             </Grid>)}
-
-
-
         </>
     );
 }

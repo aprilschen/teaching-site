@@ -8,12 +8,14 @@ import '@fontsource/roboto/700.css';
 
 import App from './App';
 
+import { user } from './data/mock-data';
+import { useState } from 'react';
 const ColorModeContext = React.createContext({ toggleColorMode: () => {
     //do nothing
 } });
 
 export default function ToggleColorMode() {
-  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+  const [mode, setMode] = useState(user.palette);
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {

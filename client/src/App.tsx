@@ -4,6 +4,7 @@ import Repl from './components/Repl'
 import Oauth from './components/Oauth';
 import Homework from './components/Homework';
 import Resources from './components/Resources';
+import PastHomework from './components/PastHomework';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -42,6 +43,11 @@ export default function App(props: any) {
           {backgroundColor: '#FFFFFF'}:{})}/>
 
           <Resources theme={props.theme}/>
+
+          <Divider sx={(props.theme.palette.mode == 'dark' ?
+          {backgroundColor: '#FFFFFF'}:{})}/>
+
+          <PastHomework theme={props.theme}/>
         </Box>
       </div>
     );

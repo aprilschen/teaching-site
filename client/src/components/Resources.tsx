@@ -41,7 +41,7 @@ export default function Resources(props: any) {
             </Typography>
 
             {expanded == true ? (<></>): (
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{mb: 5}}>
                 {links.map(link => (
                     <Grid item xs={4}>
                         <LinkCard
