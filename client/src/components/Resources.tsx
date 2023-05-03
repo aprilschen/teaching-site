@@ -43,7 +43,7 @@ export default function Resources(props: any) {
             {expanded == true ? (<></>): (
             <Grid container spacing={2} sx={{mb: 5}}>
                 {links.map(link => (
-                    <Grid item xs={4}>
+                    <Grid item xs={3}>
                         <LinkCard
                         key={link.linkID}
                         name={link.name}

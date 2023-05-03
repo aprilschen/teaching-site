@@ -111,5 +111,13 @@ export const links = [{
     link: "https://apstudents.collegeboard.org/ap/pdf/ap-computer-science-a-java-quick-reference_0.pdf",
     name: "Java Quick Reference",
     type: 'resource'
+},
+
+{
+    linkID: 4,
+    studentID: 1,
+    link: "https://www.asciitable.com/",
+    name: "ASCII Table",
+    type: 'resource'
 }]
 
