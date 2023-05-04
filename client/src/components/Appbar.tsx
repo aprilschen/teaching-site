@@ -19,7 +19,9 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { user }  from '../data/mock-data';
 import { Link } from '@mui/material';
 
-const settings = ['Settings', 'Logout'];
+import SettingsModal from './Settings';
+
+const settings = ['Logout'];
 
 export default function ResponsiveAppBar(props: any) {
   const theme = props.theme;
@@ -239,6 +241,10 @@ export default function ResponsiveAppBar(props: any) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem key={"temp"} onClick={handleCloseUserMenu}>
+                <SettingsModal theme={props.theme}/>
+              </MenuItem>
+
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>

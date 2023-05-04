@@ -119,5 +119,13 @@ export const links = [{
     link: "https://www.asciitable.com/",
     name: "ASCII Table",
     type: 'resource'
+},
+
+{
+    linkID: 5,
+    studentID: 1,
+    link: "https://www.onlinegdb.com/",
+    name: "OnlineGDB",
+    type: 'resource'
 }]
 
