@@ -1,7 +1,6 @@
 import * as React from 'react';
 import ErrorIcon from '@mui/icons-material/Error';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
