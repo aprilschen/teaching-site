@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import CopyrightIcon from '@mui/icons-material/Copyright';
 export default function Footer(props: any) {
     return (
         <Box sx={(props.theme.palette.mode == 'dark' ?
