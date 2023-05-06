@@ -16,7 +16,7 @@ export const homeworks = [{
     homeworkID: 1,
     studentID: 1,
     dateAssigned:"Sun Apr 30 2023",
-    dateDue:(new Date()).toString(),
+    dateDue: (new Date("05-05-2023")),
     name: 'Finish X Homework',
     description: 'Finish X Homework, subquestions 1, 2, and 3',
     link: "https://www.schen.academy",
@@ -27,18 +27,18 @@ export const homeworks = [{
     homeworkID: 2,
     studentID: 1,
     dateAssigned:"Sun Apr 30 2023",
-    dateDue:(new Date()).toString(),
+    dateDue: (new Date("05-05-2023")),
     name: 'Finish Y Homework',
     description: 'Finish Y Homework, subquestions 1, 2, and 3',
     link: "https://www.schen.site",
     isComplete: false
 },
-
+ // (new Date()).toString()
 {
     homeworkID: 3,
     studentID: 1,
     dateAssigned:"Sun Apr 30 2023",
-    dateDue:(new Date()).toString(),
+    dateDue: (new Date("01-21-2025")),
     name: 'Finish Z Homework',
     description: 'Finish Z Homework, subquestions 1, 2, and 3',
     link: "https://www.schen.me",
