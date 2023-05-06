@@ -33,7 +33,7 @@ export default function PastHomework(props: any) {
         <>
             <Typography variant="h5" 
             sx={(props.theme.palette.mode == 'dark' ?
-            {color: '#FFFFFF', my:2}:{my:2})}>
+            {color: '#FFFFFF', py:2}:{py:2})}>
                 Past Assignments
                 <ExpandMore
                 expand={expanded}
@@ -45,9 +45,8 @@ export default function PastHomework(props: any) {
                 </ExpandMore>
             </Typography>
 
-
-
-            {expanded == true ? (<></>): (<Grid container spacing={2}>
+            {expanded == true ? (<></>): (
+            <Grid container spacing={2}>
                 {pastHomeworks.map((homework) => (
                     <Grid item xs={4}>
                         <HomeworkCard key={homework.homeworkID}
