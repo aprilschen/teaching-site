@@ -7,7 +7,9 @@ export const user = {
      parentPhone: '7787239212',
      repl: "https://replit.com/@schen-academy/VainDazzlingField",
      meets: "https://meet.google.com/owo-mymw-dti",
-     palette: 'dark'
+     palette: 'dark',
+     showHomeworkTags: true,
+     hideCompletedModules: false
 }
 
 export const homeworks = [{

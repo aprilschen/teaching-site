@@ -20,7 +20,8 @@ export default function App(props: any) {
         {backgroundColor: '#313338', minHeight: '100vh'}:
         {minHeight: '100vh'})
       }>
-        <ResponsiveAppBar theme={props.theme} colorMode={props.colorMode}/>
+        <ResponsiveAppBar theme={props.theme} colorMode={props.colorMode}
+        palette={props.palette}/>
         <Oauth/>
         <Box sx={{mx: 4}}>
           <Typography variant="h4"

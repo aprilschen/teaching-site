@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Radio, RadioGroup, FormControlLabel, Grid, Paper, Switch } from '@mui/material';
+import { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -20,6 +21,9 @@ export default function SettingsModal(props: any) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [isLight, setIsLight] = useState((String(props.palette) == 'light') ? true : false);
+  const [hideCompleted, setHideCompleted] = useState(props.hideCompletedModules);
+  const [showTags, setShowTags] = useState(!props.showHomeworkTags);
 
   return (
     <>
@@ -50,18 +54,16 @@ export default function SettingsModal(props: any) {
             name="row-radio-buttons-group"
             >
               <Grid container >
-                <Grid item xs={4} textAlign={'center'}>
-                  <FormControlLabel value="female" control={<Radio />} label="Light" />
+                <Grid item xs={6} textAlign={'center'}>
+                  <FormControlLabel value="female" control={<Radio />} label="Light" 
+                  checked={isLight} onClick={() => setIsLight(!isLight)}/>
                 </Grid>
 
-                <Grid item xs={4} textAlign={'center'}>
-                  <FormControlLabel value="male" control={<Radio />} label="Dark" />
+                <Grid item xs={6} textAlign={'center'}>
+                  <FormControlLabel value="male" control={<Radio />} label="Dark" 
+                  checked={!isLight} onClick={() => setIsLight(!isLight)}/>
                 </Grid>
-
-                <Grid item xs={4} textAlign={'center'}>
-                  <FormControlLabel value="other" control={<Radio />} label="System" />
-                </Grid>
-            </Grid>
+              </Grid>
             </RadioGroup>
           </Paper>
 
@@ -75,8 +77,7 @@ export default function SettingsModal(props: any) {
               </Grid>
 
               <Grid item xs={2}>
-               <Switch defaultChecked/>
-
+               <Switch checked={showTags} onClick={() => setShowTags(!showTags)}/>
               </Grid>
             </Grid>
           </Paper>
@@ -91,8 +92,7 @@ export default function SettingsModal(props: any) {
               </Grid>
 
               <Grid item xs={2}>
-               <Switch defaultChecked/>
-
+                <Switch checked={hideCompleted} onClick={() => setHideCompleted(!hideCompleted)}/>
               </Grid>
             </Grid>
           </Paper>

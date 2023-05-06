@@ -38,7 +38,7 @@ export default function ToggleColorMode() {
   return (
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
-          <App theme={theme} colorMode={colorMode}/>
+          <App theme={theme} colorMode={colorMode} palette={user.palette}/>
         </ThemeProvider>
       </ColorModeContext.Provider>
   );

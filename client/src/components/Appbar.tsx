@@ -242,7 +242,7 @@ export default function ResponsiveAppBar(props: any) {
               onClose={handleCloseUserMenu}
             >
               <MenuItem key={"temp"} onClick={handleCloseUserMenu}>
-                <SettingsModal theme={props.theme}/>
+                <SettingsModal theme={props.theme} palette={props.palette}/>
               </MenuItem>
 
               {settings.map((setting) => (
