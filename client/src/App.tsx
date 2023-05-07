@@ -2,13 +2,15 @@ import { Routes, Route } from "react-router-dom";
 
 import ResponsiveAppBar from './Appbar';
 import Oauth from './components/Oauth';
-
 import Footer from './Footer';
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+
 import Dashboard from "./Dashboard";
+import PageNotFound from "./PageNotFound";
 
 export default function App(props: any) {
     return (
@@ -25,8 +27,7 @@ export default function App(props: any) {
               <Routes>
                 <Route path="/" element={
                   <Dashboard
-                  theme={props.theme}
-                  />
+                  theme={props.theme}/>
                 }/>
 
                 <Route path="/login" element={
@@ -40,6 +41,11 @@ export default function App(props: any) {
 
                 <Route path="/landing" element={
                   'Landing Page!'
+                }/>
+
+                <Route path="*" element={
+                  <PageNotFound
+                  theme={props.theme}/>
                 }/>
               </Routes>
           </main>
