@@ -6,7 +6,7 @@ import Homework from './components/Homework';
 import Resources from './components/Resources';
 import PastHomework from './components/PastHomework';
 import Footer from './components/Footer';
-import TuitionAlert from './components/tuitionAlert';
+import TuitionAlert from './components/TuitionAlert';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
