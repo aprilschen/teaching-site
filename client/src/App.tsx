@@ -1,30 +1,16 @@
-import ResponsiveAppBar from './components/Appbar';
-import { Typography, Box, Divider } from '@mui/material';
-import Repl from './components/Repl'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import ResponsiveAppBar from './Appbar';
 import Oauth from './components/Oauth';
-import Homework from './components/Homework';
-import Resources from './components/Resources';
-import PastHomework from './components/PastHomework';
-import Footer from './components/Footer';
-import TuitionAlert from './components/TuitionAlert';
+
+import Footer from './Footer';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-
-import { user }  from './data/mock-data';
-import { tuition } from './data/mock-data';
+import Dashboard from "./Dashboard";
 
 export default function App(props: any) {
-  function tuitionIsLate() {
-    tuition.forEach(session => {
-      if ((new Date()) > session.dateDue) {
-        return true;
-      }
-    });
-    return false;
-  }
-
     return (
       <>
           <div style={
@@ -35,37 +21,25 @@ export default function App(props: any) {
           <ResponsiveAppBar theme={props.theme} colorMode={props.colorMode}
           palette={props.palette}/>
           <Oauth/>
-
           <main>
-            <Box sx={{mx: 4}}>
-              <Typography variant="h4"
-              sx={(props.theme.palette.mode == 'dark' ?
-              {color: '#FFFFFF', mb:1}:{mb:1})}>
-                Welcome Back, {`${user.firstName}!`}
-                {tuitionIsLate() ? <></> : 
-                <TuitionAlert theme={props.theme}/>}
-              </Typography>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={
+                  <Dashboard
+                  theme={props.theme}
+                  />
+                }/>
 
-              <Divider sx={(props.theme.palette.mode == 'dark' ?
-              {backgroundColor: '#FFFFFF'}:{})}/>
+                <Route path="/login" element={
+                  'Login Page!'
+                }/>
 
-              <Homework theme={props.theme}/>
 
-              <Divider sx={(props.theme.palette.mode == 'dark' ?
-              {backgroundColor: '#FFFFFF'}:{})}/>
-
-              <Repl/>
-
-              <Divider sx={(props.theme.palette.mode == 'dark' ?
-              {backgroundColor: '#FFFFFF'}:{})}/>
-
-              <Resources theme={props.theme}/>
-
-              <Divider sx={(props.theme.palette.mode == 'dark' ?
-              {backgroundColor: '#FFFFFF'}:{})}/>
-
-              <PastHomework theme={props.theme}/>
-            </Box>
+                <Route path="/payments" element={
+                  'Payments Page!'
+                }/>
+              </Routes>
+            </BrowserRouter>
           </main>
         </div>
         <Footer theme={props.theme}/>

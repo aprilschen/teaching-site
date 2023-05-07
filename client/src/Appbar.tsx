@@ -16,10 +16,10 @@ import CodeIcon from '@mui/icons-material/Code';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-import { user }  from '../data/mock-data';
+import { user }  from './data/mock-data';
 import { Link } from '@mui/material';
 
-import SettingsModal from './Settings';
+import SettingsModal from './components/Settings';
 
 const settings = ['Logout'];
 
@@ -55,7 +55,7 @@ export default function ResponsiveAppBar(props: any) {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="https://www.schen.academy/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -163,7 +163,7 @@ export default function ResponsiveAppBar(props: any) {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="https://www.schen.academy/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
