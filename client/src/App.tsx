@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import ResponsiveAppBar from './Appbar';
 import Oauth from './components/Oauth';
@@ -22,7 +22,6 @@ export default function App(props: any) {
           palette={props.palette}/>
           <Oauth/>
           <main>
-            <BrowserRouter>
               <Routes>
                 <Route path="/" element={
                   <Dashboard
@@ -38,8 +37,11 @@ export default function App(props: any) {
                 <Route path="/payments" element={
                   'Payments Page!'
                 }/>
+
+                <Route path="/landing" element={
+                  'Landing Page!'
+                }/>
               </Routes>
-            </BrowserRouter>
           </main>
         </div>
         <Footer theme={props.theme}/>

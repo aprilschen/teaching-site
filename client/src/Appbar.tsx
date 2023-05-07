@@ -19,6 +19,8 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { user }  from './data/mock-data';
 import { Link } from '@mui/material';
 
+import { Link as RouterLink } from 'react-router-dom';
+
 import SettingsModal from './components/Settings';
 
 const settings = ['Logout'];
@@ -50,23 +52,26 @@ export default function ResponsiveAppBar(props: any) {
       <AppBar position="static" sx={{mb:3}}>
       <Container maxWidth={false} sx={{mx:1}}>
         <Toolbar disableGutters>
-          <CodeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="https://www.schen.academy/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Class Portal
-          </Typography>
+
+              <CodeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  mr: 2,
+                  display: { xs: 'none', md: 'flex' },
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
+              >
+                <RouterLink to="/"  style={{color: 'white', textDecoration: 'none'}}>
+                  Class Portal
+                </RouterLink>
+
+              </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -174,7 +179,9 @@ export default function ResponsiveAppBar(props: any) {
               textDecoration: 'none',
             }}
           >
-            Class Portal
+            <RouterLink to="/" style={{color: 'white', textDecoration: 'none'}}>
+              Class Portal
+            </RouterLink>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
             <Button

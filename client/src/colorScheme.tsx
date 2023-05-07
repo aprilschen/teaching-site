@@ -6,6 +6,9 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import { BrowserRouter } from "react-router-dom";
+
+
 import App from './App';
 
 import { user } from './data/mock-data';
@@ -38,7 +41,9 @@ export default function ToggleColorMode() {
   return (
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
-          <App theme={theme} colorMode={colorMode} palette={user.palette}/>
+          <BrowserRouter>
+            <App theme={theme} colorMode={colorMode} palette={user.palette}/>
+          </BrowserRouter>
         </ThemeProvider>
       </ColorModeContext.Provider>
   );
