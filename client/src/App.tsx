@@ -6,15 +6,25 @@ import Homework from './components/Homework';
 import Resources from './components/Resources';
 import PastHomework from './components/PastHomework';
 import Footer from './components/Footer';
-
+import TuitionAlert from './components/tuitionAlert';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 import { user }  from './data/mock-data';
+import { tuition } from './data/mock-data';
 
 export default function App(props: any) {
+  function tuitionIsLate() {
+    tuition.forEach(session => {
+      if ((new Date()) > session.dateDue) {
+        return true;
+      }
+    });
+    return false;
+  }
+
     return (
       <>
           <div style={
@@ -32,6 +42,8 @@ export default function App(props: any) {
               sx={(props.theme.palette.mode == 'dark' ?
               {color: '#FFFFFF', mb:1}:{mb:1})}>
                 Welcome Back, {`${user.firstName}!`}
+                {tuitionIsLate() ? <></> : 
+                <TuitionAlert theme={props.theme}/>}
               </Typography>
 
               <Divider sx={(props.theme.palette.mode == 'dark' ?

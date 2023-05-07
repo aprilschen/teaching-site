@@ -33,7 +33,6 @@ export const homeworks = [{
     link: "https://www.schen.site",
     isComplete: false
 },
- // (new Date()).toString()
 {
     homeworkID: 3,
     studentID: 1,
@@ -81,13 +80,15 @@ export const pastHomeworks = [{
 export const tuition = [{
     tuitionID: 1,
     studentID: 1,
-    classTime: (new Date()).toString(),
+    classTime: (new Date("01-21-2023")).toString(),
+    dateDue: (new Date("02-01-2023")),
     cost: 40
 },
 {
     tuitionID: 2,
     studentID: 1,
     classTime: (new Date()).toString(),
+    dateDue: (new Date("02-01-2023")),
     cost: 60
 }]
 
