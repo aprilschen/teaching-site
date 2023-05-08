@@ -34,13 +34,11 @@ export default function App(props: any) {
 
                 <Route path="/login" element={
                   <Login
-                  theme={props.theme}
                   />
                 }/>
 
                 <Route path="/register" element={
                   <Register
-                  theme={props.theme}
                   />
                 }/>
 
