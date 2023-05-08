@@ -11,6 +11,8 @@ import '@fontsource/roboto/700.css';
 
 import Dashboard from "./Dashboard";
 import PageNotFound from "./PageNotFound";
+import Login from "./Login";
+import Register from "./Register";
 
 export default function App(props: any) {
     return (
@@ -31,7 +33,15 @@ export default function App(props: any) {
                 }/>
 
                 <Route path="/login" element={
-                  'Login Page!'
+                  <Login
+                  theme={props.theme}
+                  />
+                }/>
+
+                <Route path="/register" element={
+                  <Register
+                  theme={props.theme}
+                  />
                 }/>
 
 

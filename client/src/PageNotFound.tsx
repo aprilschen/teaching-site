@@ -23,14 +23,20 @@ export default function PageNotFound(props: any) {
             <Typography variant="h6" 
             sx={(props.theme.palette.mode == 'dark' ?
             {color: '#DDDDDD'}:{})}>
-              The page you're looking for doesn't exist.
+              {`The page you're looking for doesn't exist`}
+            </Typography>
+            <Typography variant="h6" 
+            sx={(props.theme.palette.mode == 'dark' ?
+            {color: '#DDDDDD'}:{})}>
+            {`૮꒰ ˶• ༝ •˶꒱ა ♡`}
+
             </Typography>
             <br></br>
             <Button variant="contained">
                 <Link to="/" style={(props.theme.palette.mode == 'dark' ?
             {color: 'black', textDecoration: 'none'} :
             {color: 'white', textDecoration: 'none'})}>
-                    Back Home
+                    Back To Home
                 </Link>
             </Button>
           </Grid>
