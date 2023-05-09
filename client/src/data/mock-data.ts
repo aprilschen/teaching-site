@@ -1,6 +1,7 @@
 export const user = {
      studentID: 1,
      firstName: 'April',
+     lastName: 'Chen',
      email: 'aprilschen6@gmail.com',
      phone: '6692693255',
      parentEmail: 'placeholder0114@gmail.com',

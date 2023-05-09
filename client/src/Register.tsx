@@ -11,11 +11,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
+import { Link as LinkRoute } from 'react-router-dom'
 function Copyright(props: any) {
     return (
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
         {'Copyright © '}
-        <Link color="inherit" href="https://mui.com/">
+        <Link color="inherit" href="https://main.d6noil1xf37ql.amplifyapp.com/" target="_blank">
           April Chen
         </Link>{' '}
         {new Date().getFullYear()}
@@ -29,8 +30,14 @@ export default function Register() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
+          firstName: data.get('firstName'),
+          lastName: data.get('lastName'),
           email: data.get('email'),
           password: data.get('password'),
+          confirmPassword: data.get('confirmPassword'),
+          phoneNumber: data.get('phoneNumber'),
+          parentNumber: data.get('parentNumber'),
+          parentEmail: data.get('parentEmail'),
         });
       };
 
@@ -95,11 +102,61 @@ export default function Register() {
                   autoComplete="new-password"
                 />
               </Grid>
+
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                <TextField
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  type="password"
+                  id="confirmPassword"
+                  autoComplete="new-password"
                 />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="phoneNumber"
+                  label="Phone Number"
+                  type="tel"
+                  id="phoneNumber"
+                  autoComplete="phone-number"
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="parentNumber"
+                  label="Parent Phone Number"
+                  type="tel"
+                  id="parentNumber"
+                  autoComplete="phone-number"
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="parentEmail"
+                  label="Parent Email Address"
+                  name="parentEmail"
+                  autoComplete="email"
+                />
+                </Grid>
+              <Grid item xs={12}>
+                <Typography>
+                  <FormControlLabel
+                    control={<Checkbox value="allowExtraEmails" color="primary" />}
+                    label=''
+                    required/>
+                  I agree to the student policy, as defined <Link>here</Link>.
+                </Typography>
               </Grid>
             </Grid>
             <Button
@@ -110,16 +167,19 @@ export default function Register() {
             >
               Sign Up
             </Button>
+
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
+                <LinkRoute to="/login" style={{textDecoration: 'none'}}>
+                  <Link href="#" variant="body2">
+                    Already have an account? Sign in
+                  </Link>
+                </LinkRoute>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        <Copyright sx={{ mt: 5, pb:10}} />
       </Container>
     );
 }
