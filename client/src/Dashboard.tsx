@@ -6,12 +6,12 @@ import Resources from './components/Resources';
 import PastHomework from './components/PastHomework';
 import TuitionAlert from './components/TuitionAlert';
 
-import { tuition } from './data/mock-data';
+import { tuitions } from './data/mock-data';
 import { user }  from './data/mock-data';
 
 export default function Dashboard(props: any) {
     function tuitionIsLate() {
-        tuition.forEach(session => {
+        tuitions.forEach(session => {
           if ((new Date()) > session.dateDue) {
             return true;
           }
@@ -29,23 +29,19 @@ export default function Dashboard(props: any) {
             <TuitionAlert theme={props.theme}/>}
             </Typography>
 
-            <Divider sx={(props.theme.palette.mode == 'dark' ?
-            {backgroundColor: '#FFFFFF'}:{})}/>
+            <Divider/>
 
             <Homework theme={props.theme}/>
 
-            <Divider sx={(props.theme.palette.mode == 'dark' ?
-            {backgroundColor: '#FFFFFF'}:{})}/>
+            <Divider/>
 
             <Repl/>
 
-            <Divider sx={(props.theme.palette.mode == 'dark' ?
-            {backgroundColor: '#FFFFFF'}:{})}/>
+            <Divider/>
 
             <Resources theme={props.theme}/>
 
-            <Divider sx={(props.theme.palette.mode == 'dark' ?
-            {backgroundColor: '#FFFFFF'}:{})}/>
+            <Divider/>
 
             <PastHomework theme={props.theme}/>
         </Box>

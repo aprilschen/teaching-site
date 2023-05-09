@@ -78,7 +78,7 @@ export const pastHomeworks = [{
     isComplete: false
 }]
 
-export const tuition = [{
+export const tuitions = [{
     tuitionID: 1,
     studentID: 1,
     classTime: (new Date("01-21-2023")).toString(),

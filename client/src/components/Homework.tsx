@@ -47,7 +47,8 @@ export default function Homework(props: any) {
 
 
 
-            {expanded == true ? (<></>): (<Grid container spacing={2}>
+            {expanded == true ? (<></>): (
+            <Grid container spacing={2}>
                 {homeworks.map((homework) => (
                     <Grid item xs={4}>
                         <HomeworkCard key={homework.homeworkID}

@@ -13,6 +13,7 @@ import Dashboard from "./Dashboard";
 import PageNotFound from "./PageNotFound";
 import Login from "./Login";
 import Register from "./Register";
+import Payments from "./Payments";
 
 export default function App(props: any) {
     return (
@@ -42,9 +43,9 @@ export default function App(props: any) {
                   />
                 }/>
 
-
                 <Route path="/payments" element={
-                  'Payments Page!'
+                  <Payments
+                  theme={props.theme}/>
                 }/>
 
                 <Route path="/landing" element={
