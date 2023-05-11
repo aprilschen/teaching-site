@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Oauth from './components/Oauth';
 
 import { Link as LinkRoute} from 'react-router-dom';
 
@@ -38,6 +39,7 @@ export default function Login() {
 
     return (
         <Container component="main" maxWidth="xs">
+        <Oauth/>
         <CssBaseline />
         <Box
           sx={{
