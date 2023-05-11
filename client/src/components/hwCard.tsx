@@ -1,4 +1,4 @@
-import { Button, Paper, CardActions, CardContent, Typography } from "@mui/material";
+import { Button, Paper, CardActions, CardContent, Link, Typography } from "@mui/material";
 import { useState } from "react";
 import Confetti from 'react-confetti'
 import OverdueAlert from "./OverdueAlert";
@@ -17,27 +17,32 @@ export default function HomeworkCard(props: any) {
     return (
         <Paper elevation={2} sx={{mb:4}} key={props.homeworkID}>
             <CardContent>
-                <Typography>{props.dateAssigned}</Typography>
-                <Typography>{props.dateDue.toString()}</Typography>
-                <Typography>{props.name}</Typography>
-                <Typography>{props.description}</Typography>
-                <Typography>{props.link}</Typography>
+                <Typography fontSize={20}>
+                    <Link href={props.link} target="_blank">
+                        {props.name}
+                    </Link>
+                </Typography>
+                <Typography fontSize={15}>{props.description}</Typography>
+                <br></br>
+
+                <Typography fontSize={15}>Date Assigned: {props.dateAssigned.toLocaleDateString('en-US').toString()}</Typography>
+                <Typography fontSize={15}>Date Due: {props.dateDue.toLocaleDateString('en-US').toString()}</Typography>
             </CardContent>
             <CardActions>
                 {isComplete ? (
                     props.dateDue > (new Date()) ? 
-                        <Button variant={"contained"}color={"warning"} onClick={handleChange}>
+                        <Button sx={{ml:1}} variant={"contained"}color={"warning"} onClick={handleChange}>
                         Incomplete
                         </Button> : 
                         <>
                             <Button variant={"contained"}color={"error"} onClick={handleChange}
-                            sx={{mr:1}}>
+                            sx={{mx:1}}>
                                 Overdue
                             </Button>
                             <OverdueAlert/>
                         </>
                     ) : (
-                    <Button variant={"contained"}color={"success"} onClick={handleChange}>
+                    <Button sx={{ml:1}}variant={"contained"}color={"success"} onClick={handleChange}>
                         Complete
                     </Button>
                     )

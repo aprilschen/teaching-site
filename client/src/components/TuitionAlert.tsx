@@ -4,6 +4,7 @@ import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import { Link } from '@mui/material';
+import { Link as LinkRoute } from 'react-router-dom';
 
 export default function TuitionAlert(props: any) {
     const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
@@ -25,19 +26,12 @@ export default function TuitionAlert(props: any) {
                 <Typography color="inherit"
                 >Tuition is overdue</Typography>
                 <Typography fontSize={12} sx={{mb: 1}}>
-                    Tuition is overdue on the first of each month.
+                    {`Tuition is overdue on the first of each month. `}
                     <Link sx={props.theme.palette.mode == 'dark' ? {color: 'black'} : {}}>
-                        {' Find out how much is overdue '}
+                      <LinkRoute to='/payments'>
+                        {'Find out what\'s due '}
+                      </LinkRoute>
                     </Link>
-                </Typography>
-
-                <Typography fontSize={12}>
-                    You can pay via Stripe through
-                    <Link href='https://buy.stripe.com/aEUg2pe2t16CgOk6oo'
-                     sx={props.theme.palette.mode == 'dark' ? {color: 'black'} : {}}>
-                        {' this link'}
-                    </Link>
-                    , or by clicking "Pay Tuition" on the navbar.
                 </Typography>
             </React.Fragment>}>
             <ErrorIcon sx={{ml: 1}}/>

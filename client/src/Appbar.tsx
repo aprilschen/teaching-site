@@ -107,7 +107,7 @@ export default function ResponsiveAppBar(props: any) {
               key={"Class Link"}
               onClick={handleCloseNavMenu}>
                 <Link sx={{textDecoration: 'none'}} href={user.meets} target="_blank">
-                  <Typography>
+                <Typography style={{color: 'white'}}>
                     Class Link
                   </Typography>
                 </Link>
@@ -116,13 +116,13 @@ export default function ResponsiveAppBar(props: any) {
               <br></br>
 
               <Button
-              key={"Pay Tuition"}
+              key={"Tuition"}
               onClick={handleCloseNavMenu}>
-                <Link sx={{textDecoration: 'none'}} href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank">
-                  <Typography>
-                    Pay Tuition
-                  </Typography>
-                </Link>
+                <RouterLink to="/payments" style={{textDecoration: 'none'}}>
+                    <Typography style={{color: 'white'}}>
+                      Tuition
+                    </Typography>
+                </RouterLink>
               </Button>
 
               <br></br>
@@ -131,7 +131,7 @@ export default function ResponsiveAppBar(props: any) {
               key={"Open Repl"}
               onClick={handleCloseNavMenu}>
                 <Link sx={{textDecoration: 'none'}} href={user.repl} target="_blank">
-                  <Typography>
+                <Typography style={{color: 'white'}}>
                     Open Repl
                   </Typography>
                 </Link>
@@ -143,7 +143,7 @@ export default function ResponsiveAppBar(props: any) {
               key={"Message me"}
               onClick={handleCloseNavMenu}>
                 <Link sx={{textDecoration: 'none'}} href="https://vcard.link/card/DhbO" target="_blank">
-                  <Typography>
+                <Typography style={{color: 'white'}}>
                   Message me
                   </Typography>
                 </Link>
@@ -155,7 +155,7 @@ export default function ResponsiveAppBar(props: any) {
               key={"Absence Form"}
               onClick={handleCloseNavMenu}>
                 <Link sx={{textDecoration: 'none'}} href="https://forms.gle/5h1nL47DXepW2k8YA" target="_blank">
-                  <Typography>
+                <Typography style={{color: 'white'}}>
                     Absence Form
                   </Typography>
                 </Link>
@@ -192,10 +192,14 @@ export default function ResponsiveAppBar(props: any) {
             </Button>
 
             <Button
-            key={"Pay Tuition"}
+            key={"Tuition"}
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: 'white', display: 'block' }}>
-              <Link sx={{textDecoration: 'none'}} href="https://buy.stripe.com/aEUg2pe2t16CgOk6oo" target="_blank" color="inherit">Pay Tuition</Link>
+              <RouterLink style={{textDecoration: 'none'}} to="/payments" color="inherit">
+                  <Link sx={{textDecoration: 'none', color: 'white'}}>
+                    Tuition
+                  </Link>
+                </RouterLink>
             </Button>
 
             <Button
