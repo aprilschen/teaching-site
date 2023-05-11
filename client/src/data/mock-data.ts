@@ -83,14 +83,16 @@ export const tuitions = [{
     studentID: 1,
     classTime: (new Date("01-21-2023")),
     dateDue: (new Date("02-01-2025")),
-    cost: 40
+    cost: 40,
+    fulfilled: false
 },
 {
     tuitionID: 2,
     studentID: 1,
     classTime: (new Date("01-28-2023")),
     dateDue: (new Date("02-01-2023")),
-    cost: 60
+    cost: 60,
+    fulfilled: true
 },
 
 {
@@ -98,7 +100,8 @@ export const tuitions = [{
     studentID: 1,
     classTime: (new Date("02-05-2023")),
     dateDue: (new Date("02-01-2023")),
-    cost: 60
+    cost: 60,
+    fulfilled: false
 },
 
 {
@@ -106,7 +109,8 @@ export const tuitions = [{
     studentID: 1,
     classTime: (new Date()),
     dateDue: (new Date("02-01-2023")),
-    cost: 60
+    cost: 60,
+    fulfilled: true
 }]
 
 export const links = [{

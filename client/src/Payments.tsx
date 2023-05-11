@@ -1,14 +1,24 @@
-import { Box, Divider, Grid, Paper, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 
 import { tuitions } from "./data/mock-data";
 import TuitionDropdown from "./components/TuitionDropdown";
 
 export default function Payments(props: any) {
 
-    function calculateOwedTuition() {
+    function calculateOverdueTuition() {
         let totalOwed = 0;
         tuitions.forEach(session => {
             if ((new Date()) > session.dateDue) {
+                totalOwed += session.cost;
+            }
+        })
+        return totalOwed;
+    }
+
+    function calculateOwedTuition() {
+        let totalOwed = 0;
+        tuitions.forEach(session => {
+            if (!session.fulfilled) {
                 totalOwed += session.cost;
             }
         })
@@ -28,33 +38,17 @@ export default function Payments(props: any) {
             <Typography variant="h5" 
             sx={(props.theme.palette.mode == 'dark' ?
             {color: '#FFFFFF', mb:2}:{mb:2})}>
-                Total Owed: ${calculateOwedTuition()}
+                Overdue: ${calculateOverdueTuition()}
             </Typography>
 
+            <Typography variant="h5" 
+            sx={(props.theme.palette.mode == 'dark' ?
+            {color: '#FFFFFF', mb:2}:{mb:2})}>
+                Unpaid: ${calculateOwedTuition()}
+            </Typography>
             <Divider/>
 
-            <TuitionDropdown/>
-
-            <Grid container spacing={2}>
-                {tuitions.map((tuition) => (
-                    <Grid item xs={3}>
-                        <Paper sx={{p:2}}>
-                            <Typography>
-                                ID: {tuition.tuitionID}
-                            </Typography>
-                            <Typography>
-                                Class Date: {tuition.classTime.toLocaleDateString('en-US')}
-                            </Typography>
-                            <Typography>
-                                Cost: {tuition.cost}
-                            </Typography>
-                            <Typography>
-                                Date Due: {tuition.dateDue.toLocaleDateString('en-US').toString()}
-                            </Typography>
-                        </Paper>
-                    </Grid>
-                ))}
-            </Grid>
+            <TuitionDropdown theme={props.theme}/>
         </Box>
     );
 }
