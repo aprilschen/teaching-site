@@ -13,6 +13,7 @@ import PageNotFound from "./PageNotFound";
 import Login from "./Login";
 import Register from "./Register";
 import Payments from "./Payments";
+import Debug from "./Debug";
 
 export default function App(props: any) {
     return (
@@ -48,6 +49,10 @@ export default function App(props: any) {
 
                 <Route path="/landing" element={
                   'Landing Page!'
+                }/>
+
+                <Route path="/debug" element={
+                  <Debug/>
                 }/>
 
                 <Route path="*" element={
