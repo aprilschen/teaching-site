@@ -9,7 +9,7 @@ export default function Oauth() {
                 data-callback="getInfo"
                 data-auto_select="true"
                 data-itp_support="true">
-            </div>
+            </div> 
 
             <div className="g_id_signin"
                 data-type="standard"
