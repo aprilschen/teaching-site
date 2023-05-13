@@ -1,0 +1,31 @@
+{
+  "server": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-teachingbackend-server-92700-authRole",
+      "UnauthRoleArn": "arn:aws:iam::701950200641:role/amplify-teachingbackend-server-92700-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::701950200641:role/amplify-teachingbackend-server-92700-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-teachingbackend-server-92700-deployment",
+      "UnauthRoleName": "amplify-teachingbackend-server-92700-unauthRole",
+      "StackName": "amplify-teachingbackend-server-92700",
+      "StackId": "arn:aws:cloudformation:us-west-1:701950200641:stack/amplify-teachingbackend-server-92700/fd3ea970-f1aa-11ed-ba2d-060e6733a52d",
+      "AmplifyAppId": "da8jdngjvqsni"
+    },
+    "categories": {
+      "function": {
+        "getUserInfo": {
+          "deploymentBucketName": "amplify-teachingbackend-server-92700-deployment",
+          "s3Key": "amplify-builds/getUserInfo-364c2b6538696a496d44-build.zip"
+        },
+        "getStudents": {
+          "deploymentBucketName": "amplify-teachingbackend-server-92700-deployment",
+          "s3Key": "amplify-builds/getStudents-4b6f365571666a6b464a-build.zip"
+        }
+      },
+      "api": {
+        "getUserInfo": {},
+        "getStudents": {}
+      }
+    }
+  }
+}
