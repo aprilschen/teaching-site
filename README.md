@@ -1,7 +1,5 @@
 # teaching-site
-This site is still in its beginning stages of development, and is NOT usable in its current state.
-
-You can find the version I'm currently pushing to at https://www.schen.academy.
+Custom teaching portal for private client's programming classes. You can find a sandbox version of this application, complete with mock data, at https://www.schen.academy.
 
 All the best! <br>
 \- Shiwei
