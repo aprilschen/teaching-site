@@ -8,7 +8,7 @@ export default function Oauth() {
                 data-ux_mode="popup"
                 data-callback="getInfo"
                 data-auto_select="true"
-                data-itp_support="true"> 
+                data-itp_support="true">
             </div>
 
             <div className="g_id_signin"
