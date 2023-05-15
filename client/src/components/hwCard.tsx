@@ -25,12 +25,12 @@ export default function HomeworkCard(props: any) {
                 <Typography fontSize={15}>{props.description}</Typography>
                 <br></br>
 
-                <Typography fontSize={15}>Date Assigned: {props.dateAssigned.toLocaleDateString('en-US').toString()}</Typography>
-                <Typography fontSize={15}>Date Due: {props.dateDue.toLocaleDateString('en-US').toString()}</Typography>
+                <Typography fontSize={15}>Date Assigned: {props.dateAssigned.substring(0,10)}</Typography>
+                <Typography fontSize={15}>Date Due: {props.dateDue.substring(0,10)}</Typography>
             </CardContent>
             <CardActions>
                 {isComplete ? (
-                    props.dateDue > (new Date()) ? 
+                    new Date(props.dateDue) > (new Date()) ? 
                         <Button sx={{ml:1}} variant={"contained"}color={"warning"} onClick={handleChange}>
                         Incomplete
                         </Button> : 

@@ -1,10 +1,8 @@
 import { Grid, Typography, IconButtonProps, IconButton } from "@mui/material";
-
-import { pastHomeworks }  from '../data/mock-data';
-
 import HomeworkCard from "./hwCard";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -29,9 +27,21 @@ export default function PastHomework(props: any) {
     const [expanded, setExpanded] = useState(true);
     const handleExpandClick = () => {setExpanded(!expanded)};
 
+    const [pastHomeworks, setPastHomeworks] = useState<any>(null);
+
+    useEffect(() => {
+      axios.get("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/homework/?studentID=1&isLegacy=true")
+      .then(res => res.data)
+      .then(res => setPastHomeworks(res));
+    },[]);
+
+    if(!pastHomeworks) {
+        return (<></>);
+    }
+
     return (
         <>
-            <Typography variant="h5" 
+            <Typography variant="h5"
             sx={(props.theme.palette.mode == 'dark' ?
             {color: '#FFFFFF', py:2}:{py:2})}>
                 Past Assignments
@@ -47,7 +57,7 @@ export default function PastHomework(props: any) {
 
             {expanded == true ? (<></>): (
             <Grid container spacing={2}>
-                {pastHomeworks.map((homework) => (
+                {pastHomeworks.map((homework: any) => (
                     <Grid item xs={4}>
                         <HomeworkCard key={homework.homeworkID}
                         dateAssigned={homework.dateAssigned}

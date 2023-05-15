@@ -1,5 +1,5 @@
 # teaching-site
-Custom teaching portal for private clients' programming classes. You can find a sandbox version of this application, complete with mock data, at https://www.schen.academy.
+Custom teaching portal for private clients' programming classes. You can find a sandbox version of this application, complete with mock data, at https://www.schen.academy/main.
 
 All the best! <br>
 \- Shiwei
@@ -15,9 +15,9 @@ All the best! <br>
  - Express.js
 
 #### Deployment
- - AWS Amplify
- - AWS Lambda
- - RDS PostgreSQL
+ - AWS Amplify (Frontend)
+ - AWS Lambda (REST API)
+ - Relational Database Servise - PostgreSQL (Database)
 
 #### Integrations
  - Stripe payment processing

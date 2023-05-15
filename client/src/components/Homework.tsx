@@ -1,11 +1,9 @@
 import { Grid, Typography, IconButtonProps, IconButton } from "@mui/material";
 
-import { homeworks }  from '../data/mock-data';
-
 import HomeworkCard from "./hwCard";
 
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { styled } from '@mui/material/styles';
@@ -29,6 +27,18 @@ export default function Homework(props: any) {
     const [expanded, setExpanded] = useState(false);
     const handleExpandClick = () => {setExpanded(!expanded)};
 
+    const [homeworks, setHomeworks] = useState<any>(null);
+
+    useEffect(() => {
+      axios.get("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/homework/?studentID=1&isLegacy=false")
+      .then(res => res.data)
+      .then(res => setHomeworks(res));
+    },[]);
+
+    if(!homeworks) {
+        return (<></>);
+    }
+
     return (
         <>
             <Typography variant="h5" 
@@ -49,7 +59,7 @@ export default function Homework(props: any) {
 
             {expanded == true ? (<></>): (
             <Grid container spacing={2}>
-                {homeworks.map((homework) => (
+                {homeworks.map((homework: any) => (
                     <Grid item xs={4}>
                         <HomeworkCard key={homework.homeworkID}
                         dateAssigned={homework.dateAssigned}
