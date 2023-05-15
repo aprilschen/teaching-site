@@ -1,11 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IconButtonProps, Grid, IconButton, styled, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import axios from "axios";
 import LinkCard from "./linkCard";
-
-import { links }  from '../data/mock-data';
-
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -25,6 +22,18 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 export default function Resources(props: any) {
     const [expanded, setExpanded] = useState(false);
     const handleExpandClick = () => {setExpanded(!expanded)};
+    const [links, setLinks] = useState<any>(null);
+
+    useEffect(() => {
+      axios.get("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/link?studentID=1")
+      .then(res => res.data)
+      .then(res => setLinks(res));
+    },[]);
+
+    if(!links) {
+        return (<></>);
+    }
+
     return (
         <>
             <Typography variant={'h5'}
@@ -42,7 +51,7 @@ export default function Resources(props: any) {
 
             {expanded == true ? (<></>): (
             <Grid container spacing={2} sx={{mb: 5}}>
-                {links.map(link => (
+                {links.map((link:any) => (
                     <Grid item xs={3}>
                         <LinkCard
                         key={link.linkID}
