@@ -16,9 +16,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-import { user }  from './data/mock-data';
 import { Link } from '@mui/material';
-
 import { Link as RouterLink } from 'react-router-dom';
 
 import SettingsModal from './components/Settings';
@@ -31,6 +29,8 @@ export default function ResponsiveAppBar(props: any) {
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+
+  const user = props.student;
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -67,7 +67,7 @@ export default function ResponsiveAppBar(props: any) {
                   textDecoration: 'none',
                 }}
               >
-                <RouterLink to="/"  style={{color: 'white', textDecoration: 'none'}}>
+                <RouterLink to="/main"  style={{color: 'white', textDecoration: 'none'}}>
                   Class Portal
                 </RouterLink>
 
@@ -136,7 +136,7 @@ export default function ResponsiveAppBar(props: any) {
                   </Typography>
                 </Link>
               </Button>
-              
+
               <br></br>
 
               <Button

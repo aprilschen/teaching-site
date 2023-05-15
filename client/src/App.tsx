@@ -24,12 +24,13 @@ export default function App(props: any) {
           {minHeight: '100vh'})
           }>
           <ResponsiveAppBar theme={props.theme} colorMode={props.colorMode}
-          palette={props.palette}/>
+          palette={props.palette} student={props.student}/>
           <main>
               <Routes>
                 <Route path="/main" element={
                   <Dashboard
-                  theme={props.theme}/>
+                  theme={props.theme}
+                  student={props.student}/>
                 }/>
 
                 <Route path="/" element={

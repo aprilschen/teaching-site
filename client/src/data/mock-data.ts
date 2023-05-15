@@ -1,18 +1,3 @@
-export const user = {
-     studentID: 1,
-     firstName: 'April',
-     lastName: 'Chen',
-     email: 'aprilschen6@gmail.com',
-     phone: '6692693255',
-     parentEmail: 'placeholder0114@gmail.com',
-     parentPhone: '7787239212',
-     repl: "https://replit.com/@schen-academy/VainDazzlingField",
-     meets: "https://meet.google.com/owo-mymw-dti",
-     palette: 'dark',
-     showHomeworkTags: true,
-     hideCompletedModules: false
-}
-
 export const homeworks = [{
     homeworkID: 1,
     studentID: 1,

@@ -7,9 +7,9 @@ import PastHomework from './components/PastHomework';
 import TuitionAlert from './components/TuitionAlert';
 
 import { tuitions } from './data/mock-data';
-import { user }  from './data/mock-data';
 
 export default function Dashboard(props: any) {
+    const user = props.student;
     function tuitionIsLate() {
         tuitions.forEach(session => {
           if ((new Date()) > session.dateDue) {
