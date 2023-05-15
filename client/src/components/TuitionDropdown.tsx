@@ -38,7 +38,7 @@ export default function TuitionDropdown(props: any) {
 
     if (filter=='Overdue') {
       return tuitions.filter((session: any) => (
-          (new Date()) > session.dateDue && !session.fulfilled
+          (new Date()) > new Date(session.dateDue.substring(0,10)) && !session.fulfilled
       ));
     }
 
@@ -106,7 +106,6 @@ export default function TuitionDropdown(props: any) {
 
 
     <Grid container spacing={2}> {
-        // @ts-ignore
         (arrangeSessions().map((session: any) => (
           <Grid item xs={3}>
               <Paper sx={{p:2, minHeight: '12vh'}}>
