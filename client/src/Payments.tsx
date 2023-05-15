@@ -1,14 +1,15 @@
 import { Box, Divider, Typography } from "@mui/material";
 
-import { tuitions } from "./data/mock-data";
 import TuitionDropdown from "./components/TuitionDropdown";
 
 export default function Payments(props: any) {
+    const tuitions = props.payments
 
     function calculateOverdueTuition() {
         let totalOwed = 0;
-        tuitions.forEach(session => {
-            if ((new Date()) > session.dateDue) {
+        tuitions.forEach((session: any) => {
+            console.log(session);
+            if (!session.fulfilled && (new Date()) > new Date(session.dateDue.substring(0,10))) {
                 totalOwed += session.cost;
             }
         })
@@ -17,7 +18,7 @@ export default function Payments(props: any) {
 
     function calculateOwedTuition() {
         let totalOwed = 0;
-        tuitions.forEach(session => {
+        tuitions.forEach((session: any) => {
             if (!session.fulfilled) {
                 totalOwed += session.cost;
             }
@@ -48,7 +49,8 @@ export default function Payments(props: any) {
             </Typography>
             <Divider/>
 
-            <TuitionDropdown theme={props.theme}/>
+            <TuitionDropdown theme={props.theme}
+            payments={props.payments}/>
         </Box>
     );
 }

@@ -4,12 +4,14 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Container, Link, Grid, IconButton, Paper, Tooltip, Typography } from '@mui/material';
-import { tuitions } from '../data/mock-data';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import { useState } from 'react';
+
+
 export default function TuitionDropdown(props: any) {
   const [filter, setFilter] = useState('Unfiltered');
+  const tuitions = props.payments;
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -27,7 +29,7 @@ export default function TuitionDropdown(props: any) {
 
   function arrangeSessions() {
     if (filter=='Unfiltered') {
-      return tuitions.sort((a, b) => {
+      return tuitions.sort((a:any, b:any) => {
         if (a.tuitionID < b.tuitionID) {
           return -1;
         } return 1;
@@ -35,13 +37,13 @@ export default function TuitionDropdown(props: any) {
     }
 
     if (filter=='Overdue') {
-      return tuitions.filter(session => (
+      return tuitions.filter((session: any) => (
           (new Date()) > session.dateDue && !session.fulfilled
       ));
     }
 
     else if (filter=='Newest') {
-      return tuitions.sort((a, b) => {
+      return tuitions.sort((a:any, b:any) => {
         if (a.classTime < b.classTime) {
           return 1;
         } return -1;
@@ -49,7 +51,7 @@ export default function TuitionDropdown(props: any) {
     }
 
     else if (filter == 'Oldest') {
-      return tuitions.sort((a, b) => {
+      return tuitions.sort((a:any, b:any) => {
         if (a.classTime < b.classTime) {
           return -1;
         } return 1;
@@ -57,7 +59,7 @@ export default function TuitionDropdown(props: any) {
     }
 
     else if (filter == 'Unpaid') {
-      return  tuitions.filter(session => !(session.fulfilled))
+      return  tuitions.filter((session: any) => !(session.fulfilled))
     }
   }
 
@@ -107,7 +109,7 @@ export default function TuitionDropdown(props: any) {
         // @ts-ignore
         (arrangeSessions().map((session: any) => (
           <Grid item xs={3}>
-              <Paper sx={{p:2, minHeight: '15vh'}}>
+              <Paper sx={{p:2, minHeight: '12vh'}}>
                   <Typography>
                       ID: {session.tuitionID}
                       {session.fulfilled ? (
@@ -117,7 +119,7 @@ export default function TuitionDropdown(props: any) {
                         </IconButton>
                       </Tooltip>
                       ) : (<></>)}
-                      {!session.fulfilled && new Date() > session.dateDue ? (
+                      {!session.fulfilled && new Date() > new Date(session.dateDue.substring(0,10)) ? (
                       <Tooltip title="Overdue" sx={{ml:1, mb:0.5}}>
                         <IconButton>
                           <AlarmIcon />
@@ -125,13 +127,13 @@ export default function TuitionDropdown(props: any) {
                       </Tooltip>) : (<></>)}
                   </Typography>
                   <Typography>
-                      Class Date: {session.classTime.toLocaleDateString('en-US')}
+                      Class Date: {session.classTime.substring(0,10)}
                   </Typography>
                   <Typography>
                       Cost: {session.cost}
                   </Typography>
                   <Typography>
-                      Date Due: {session.dateDue.toLocaleDateString('en-US').toString()}
+                      Date Due: {session.dateDue.substring(0,10)}
                   </Typography>
               </Paper>
             </Grid>
