@@ -23,10 +23,17 @@ export default function App(props: any) {
   const [tuitions, setTuitions] = useState<any>(null);
 
   useEffect(() => {
+    if(localStorage.getItem('studentPortalToken') == null) {
+      console.log('You need to login!')
+    } else {
+      // @ts-ignore
+      const [header, payload, signature] = localStorage.getItem('studentPortalToken').split('.');
+      const decodedPayload = JSON.parse(atob(payload));
     axios.get(
-      "https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/tuition?studentID=1")
-    .then(res => res.data)
-    .then(res => setTuitions(res))
+      `https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/tuition?studentID=${decodedPayload.studentID}`)
+      .then(res => res.data)
+      .then(res => setTuitions(res))
+    }
   },[]);
 
   if(!tuitions) {

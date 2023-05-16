@@ -30,9 +30,18 @@ export default function Homework(props: any) {
     const [homeworks, setHomeworks] = useState<any>(null);
 
     useEffect(() => {
-      axios.get("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/homework/?studentID=1&isLegacy=false")
+    if(localStorage.getItem('studentPortalToken') == null) {
+      console.log('You need to login!')
+    }
+
+    else {
+      // @ts-ignore
+      const [header, payload, signature] = localStorage.getItem('studentPortalToken').split('.');
+      const decodedPayload = JSON.parse(atob(payload));
+      axios.get(`https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/homework/?studentID=${decodedPayload.studentID}&isLegacy=false`)
       .then(res => res.data)
       .then(res => setHomeworks(res));
+    }
     },[]);
 
     if(!homeworks) {

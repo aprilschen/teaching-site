@@ -25,9 +25,17 @@ export default function Resources(props: any) {
     const [links, setLinks] = useState<any>(null);
 
     useEffect(() => {
-      axios.get("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/link?studentID=1")
+    if(localStorage.getItem('studentPortalToken') == null) {
+        console.log('You need to login!')
+    }
+    else {
+      // @ts-ignore
+      const [header, payload, signature] = localStorage.getItem('studentPortalToken').split('.');
+      const decodedPayload = JSON.parse(atob(payload));
+      axios.get(`https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/link?studentID=${decodedPayload.studentID}`)
       .then(res => res.data)
       .then(res => setLinks(res));
+    }
     },[]);
 
     if(!links) {

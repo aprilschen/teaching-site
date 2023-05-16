@@ -30,9 +30,16 @@ export default function PastHomework(props: any) {
     const [pastHomeworks, setPastHomeworks] = useState<any>(null);
 
     useEffect(() => {
-      axios.get("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/homework/?studentID=1&isLegacy=true")
+      if(localStorage.getItem('studentPortalToken') == null) {
+        console.log('You need to login!')
+      } else {
+        // @ts-ignore
+        const [header, payload, signature] = localStorage.getItem('studentPortalToken').split('.');
+        const decodedPayload = JSON.parse(atob(payload));
+      axios.get(`https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/homework/?studentID=${decodedPayload.studentID}&isLegacy=true`)
       .then(res => res.data)
       .then(res => setPastHomeworks(res));
+    }
     },[]);
 
     if(!pastHomeworks) {

@@ -26,15 +26,23 @@ export default function ToggleColorMode() {
   const [mode, setMode] = React.useState('dark');
 
   useEffect(() => {
-    axios.get(
-      "https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/student/1", {
-      headers: {Authorization: `Bearer ${localStorage.getItem('studentPortalToken')}`}})
-    .then(res => res.data[0])
-    .then(res => {
-      setUser(res)
-      return res;
-    })
-    .then(res => setMode(res.palette));
+    if(localStorage.getItem('studentPortalToken') == null) {
+      console.log('You need to login!')
+    } else {
+      // @ts-ignore
+      const [header, payload, signature] = localStorage.getItem('studentPortalToken').split('.');
+      const decodedPayload = JSON.parse(atob(payload));
+      axios.get(
+        `https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/student/${decodedPayload.studentID}`, {
+        headers: {Authorization: `Bearer ${localStorage.getItem('studentPortalToken')}`}})
+      .then(res => res.data[0])
+      .then(res => {
+        setUser(res)
+        return res;
+      })
+      .then(res => setMode(res.palette));
+    }
+
   },[]);
 
   const colorMode = React.useMemo(
