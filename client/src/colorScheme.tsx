@@ -13,6 +13,10 @@ import App from './App';
 
 import axios from 'axios';
 
+import Login from './Login';
+import Register from './Register';
+import PageNotFound from './PageNotFound';
+import { Route, Routes } from 'react-router-dom';
 const ColorModeContext = React.createContext({ toggleColorMode: () => {
     //do nothing
 } });
@@ -22,7 +26,9 @@ export default function ToggleColorMode() {
   const [mode, setMode] = React.useState('dark');
 
   useEffect(() => {
-    axios.get("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/student/1")
+    axios.get(
+      "https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/student/1", {
+      headers: {Authorization: `Bearer ${localStorage.getItem('studentPortalToken')}`}})
     .then(res => res.data[0])
     .then(res => {
       setUser(res)
@@ -51,7 +57,30 @@ export default function ToggleColorMode() {
   );
 
   if(!user) {
-    return <div>Loading...</div>
+    return (
+    <>
+      <BrowserRouter>
+        <main>
+                <Routes>
+                  <Route path="/" element={
+                    <Login
+                    />
+                  }/>
+
+                  <Route path="/register" element={
+                    <Register
+                    />
+                  }/>
+
+                  <Route path="*" element={
+                    <PageNotFound
+                    theme={theme}/>
+                  }/>
+                </Routes>
+            </main>
+      </BrowserRouter>
+    </>
+    );
   }
 
   return (

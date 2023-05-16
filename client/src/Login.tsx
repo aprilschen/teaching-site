@@ -2,8 +2,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -13,6 +11,7 @@ import Container from '@mui/material/Container';
 import Oauth from './components/Oauth';
 
 import { Link as LinkRoute} from 'react-router-dom';
+import axios from 'axios';
 
 function Copyright(props: any) {
     return (
@@ -31,10 +30,12 @@ export default function Login() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
+        axios.post("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/login/", {
           email: data.get('email'),
           password: data.get('password'),
-        });
+        })
+        .then(res => localStorage.setItem('studentPortalToken', res.data.token))
+        .then(() => window.location.href = '/main');
       };
 
     return (
@@ -76,10 +77,6 @@ export default function Login() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <Button
               type="submit"
               fullWidth
@@ -102,9 +99,18 @@ export default function Login() {
                 </LinkRoute>
               </Grid>
             </Grid>
+            <br></br>
+            <Typography>
+              Use portal@demo.com and password 'demoapp' to access sandbox mode!
+            </Typography>
+            <br></br>
+            <Typography>
+              Alternatively, make your own account (although it wont contain any 
+              preexisting data in the portal)
+            </Typography>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{ mt: 3, mb: 4 }} />
       </Container>
     );
 }

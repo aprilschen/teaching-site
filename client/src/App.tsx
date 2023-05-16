@@ -23,13 +23,15 @@ export default function App(props: any) {
   const [tuitions, setTuitions] = useState<any>(null);
 
   useEffect(() => {
-    axios.get("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/tuition?studentID=1")
+    axios.get(
+      "https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/tuition?studentID=1")
     .then(res => res.data)
     .then(res => setTuitions(res))
   },[]);
 
   if(!tuitions) {
-    return (<></>);
+    return (
+    <>Loading Tuitions...</>);
   }
 
     return (
