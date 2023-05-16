@@ -12,6 +12,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import { Link as LinkRoute } from 'react-router-dom'
+import { useState } from 'react';
+import axios from 'axios';
+
 function Copyright(props: any) {
     return (
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -26,10 +29,14 @@ function Copyright(props: any) {
   }
 
 export default function Register() {
+  const [complete, setComplete] = useState(false);  // set to false in production
+  const [email, setEmail] = useState("");
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
+        //@ts-ignore
+        setEmail(data.get('email'));
+        axios.post("https://0l3iu0rscb.execute-api.us-west-1.amazonaws.com/dev/student/", {
           firstName: data.get('firstName'),
           lastName: data.get('lastName'),
           email: data.get('email'),
@@ -38,8 +45,36 @@ export default function Register() {
           phoneNumber: data.get('phoneNumber'),
           parentNumber: data.get('parentNumber'),
           parentEmail: data.get('parentEmail'),
-        });
+        })
+        .then(res => console.log(res))
+        .then(() => setComplete(true));
       };
+
+    if(complete) {
+      return (
+      <>
+      <Box sx={{mt: 25, mx:3}} textAlign={'center'}>
+      <Typography variant={'h4'}>
+            Thanks for signing up!
+          </Typography>
+
+          <br></br>
+
+        <Typography>
+            an confirmation email should have been sent to {email}
+           , with the login credentials inside.
+        </Typography>
+
+        <br></br>
+
+        <LinkRoute to="/" style={{textDecoration: 'none'}}>
+            <Button>
+              Login
+            </Button>
+        </LinkRoute>
+      </Box>
+      </>)
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -170,7 +205,7 @@ export default function Register() {
 
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <LinkRoute to="/login" style={{textDecoration: 'none'}}>
+                <LinkRoute to="/" style={{textDecoration: 'none'}}>
                   <Link href="#" variant="body2">
                     Already have an account? Sign in
                   </Link>
