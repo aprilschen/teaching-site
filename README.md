@@ -1,5 +1,5 @@
 # teaching-site
-Custom teaching portal for private clients' programming classes. You can find a sandbox version of this application, complete with mock data, at https://www.schen.academy/main.
+Custom teaching portal for private clients' programming classes. You can find a sandbox version of this application, complete with mock data, at https://www.schen.academy.
 
 All the best! <br>
 \- Shiwei
